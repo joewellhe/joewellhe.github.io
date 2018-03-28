@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Interview Questions for Machine Learning &amp; NLP</title>
+    <title>Posts on Interview Questions for Machine Learning</title>
     <link>https://joewellhe.github.io/post/</link>
-    <description>Recent content in Posts on Interview Questions for Machine Learning &amp; NLP</description>
+    <description>Recent content in Posts on Interview Questions for Machine Learning</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Mar 2018 13:15:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Mar 2018 19:18:23 +0800</lastBuildDate>
     
 	<atom:link href="https://joewellhe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First</title>
-      <link>https://joewellhe.github.io/post/first/</link>
-      <pubDate>Wed, 28 Mar 2018 13:15:03 +0800</pubDate>
+      <title>线性模型</title>
+      <link>https://joewellhe.github.io/post/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Wed, 28 Mar 2018 19:18:23 +0800</pubDate>
       
-      <guid>https://joewellhe.github.io/post/first/</guid>
-      <description>这是我的第一个个人博客网站 这是我的第一个个人博客网站 这是我的第一个个人博客网站 这是我的第一个个人博客网站 这是我的第一个个人博客网站 这是我的第一个个人博客网站 这是我的第一个个人博客网站 这是我的第一个个人博客网站</description>
+      <guid>https://joewellhe.github.io/post/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</guid>
+      <description>第一次</description>
     </item>
     
   </channel>

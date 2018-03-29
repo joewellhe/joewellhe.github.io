@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.37" />
+
+  <title>Golang &middot; Interview Questions for Machine Learning</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://joewellhe.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://joewellhe.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://joewellhe.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+  <link rel="alternate" type="application/rss+xml" title="Interview Questions for Machine Learning" href="https://joewellhe.github.io/tags/golang/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://joewellhe.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://joewellhe.github.io/">Menu</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/topics/"><i class='fa fa-folder fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://joewellhe.github.io/tags/golang/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/joewellhe" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Golang</h1>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://joewellhe.github.io/post/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">线性模型</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>28 Mar 2018, 19:18</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://joewellhe.github.io/tags/development">Development</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://joewellhe.github.io/tags/golang">golang</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  线性回归 模型：
+策略：普通最小二乘（OLS）
+优化方式：
+ 梯度下降   正规方差  优点：实现简单，计算简单，有解析解；
+缺点：不能拟合非线性数据；
+Q1: （普通最小二乘）OLS是用于线性回归, （最大似然）MLE是用于逻辑回归，解释以上描述？ 简单地说，普通最小二乘法（OLS）是在线性回归中求解参数使用的方法，可以通过解正规方程得到解析解。 此外还可以通过梯度下降的方法求解最小均方误差的数值解，且普通最小二乘由梯度下降求解可以收敛到全局的最优解。 最大似然估计是一种常用的参数估计方式，最大似然性有助于选择使参数最可能产生观测数据的可能性最大化的参数值。 LR模型中通过最大化对数似然函数得到最优解。
+事实上，线性回归的OLS在满足一定的数据分布假设的情况下，和MLE是等同的。
+我们假设线性回归产生的误差是服从正态分布的，即
+则根据正态分布的平移收缩，我们可以知道y也满足如下的正态分布
+通过最大化对数似然函数我们可以得到
+可以看到，减号前为常数项，最大化对数似然函数等价于普通最小二乘。
+Q2: 关于MLE（最大似然估计），下面哪一项或几项说法是正确的 A. MLE可能不存在
+B. MLE总是存在
+C. 如果MLE存在，可能不是唯一的
+D. 如果MLE存在，肯定是唯一的
+A. 1 and 4 B. 2 and 3 C. 1 and 3 D. 2 and 4
+答案：C
+MLE是通过似然函数导数等于0来找最优点，即找驻点所以有以下结论： MLE可以不是转折点，即，可以不是似然（和对数似然）函数的一阶导数的消失点。 MLE可以不是唯一的。
+Q3: 在推导线性回归参数时，我们会做出以下哪些假设？ 因变量y和预测变量x之间的真实关系是线性的。
+模型的误差在统计意义上是独立的。
+误差通常分布是均值为0，且标准差为常数。
+预测变量x是非随机的，而且不存在测量误差。
+A.1,2,3
+B.1,3,4
+C1,3
+D. 以上所有
+答案：D
+当我们推到回归参数的时候，我们会提出以上四项假设。。当任意一项假设不成立的时候，得到的模型将会是错误的。
+Q4:假设我们已经由3次多项式回归生成了数据（三次正好能拟合改组数据）。现在请考虑以下几种说法，并选择合适项。 简单线性回归将具有高偏差和低方差
+  </p>
+
+  
+  <footer>
+    <a href="https://joewellhe.github.io/post/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+</div>
+
+</div>
+</div>
+<script src="https://joewellhe.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103593285-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>

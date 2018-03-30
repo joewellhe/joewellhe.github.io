@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>线性模型 on Interview Questions for Machine Learning</title>
+    <link>https://joewellhe.github.io/tags/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/</link>
+    <description>Recent content in 线性模型 on Interview Questions for Machine Learning</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 28 Mar 2018 19:18:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://joewellhe.github.io/tags/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>线性模型</title>
+      <link>https://joewellhe.github.io/post/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Wed, 28 Mar 2018 19:18:23 +0800</pubDate>
+      
+      <guid>https://joewellhe.github.io/post/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
+      <description>线性回归 模型：
+策略：普通最小二乘（OLS）
+优化方式：
+ 梯度下降   正规方差  优点：实现简单，计算简单，有解析解；
+缺点：不能拟合非线性数据；
+一般线性回归遇到的问题
+在处理复杂的数据的回归问题时，普通的线性回归会遇到一些问题，主要表现在：
+ 预测精度：这里要处理好这样一对问题，即样本的数量n和特征的数量p  n &amp;gt;&amp;gt; p时，最小二乘回归会有较小的方差
+n ≈ p时，容易产生过拟合
+n &amp;lt; p时，最小二乘回归得不到有意义的结果
+ 模型的解释能力：如果模型中的特征之间有相互关系，这样会增加模型的复杂程度，并且对整个模型的解释能力并没有提高，这时，我们就要进行特征选择。 在进行特征选择时，一般有三种方式：  子集选择
+收缩方式(Shrinkage method)，又称为正则化(Regularization)。主要包括岭回归和Lasso回归。
+维数缩减
+Q1: （普通最小二乘）OLS是用于线性回归, （最大似然）MLE是用于逻辑回归，解释以上描述？ 简单地说，普通最小二乘法（OLS）是在线性回归中求解参数使用的方法，可以通过解正规方程得到解析解。 此外还可以通过梯度下降的方法求解最小均方误差的数值解，且普通最小二乘由梯度下降求解可以收敛到全局的最优解。 最大似然估计是一种常用的参数估计方式，最大似然性有助于选择使参数最可能产生观测数据的可能性最大化的参数值。 LR模型中通过最大化对数似然函数得到最优解。
+事实上，线性回归的OLS在满足一定的数据分布假设的情况下，和MLE是等同的。
+我们假设线性回归产生的误差是服从正态分布的，即
+则根据正态分布的平移收缩，我们可以知道y也满足如下的正态分布
+通过最大化对数似然函数我们可以得到
+可以看到，减号前为常数项，最大化对数似然函数等价于普通最小二乘。
+Q2: 关于MLE（最大似然估计），下面哪一项或几项说法是正确的 A. MLE可能不存在
+B. MLE总是存在
+C. 如果MLE存在，可能不是唯一的
+D. 如果MLE存在，肯定是唯一的
+A. 1 and 4 B. 2 and 3 C. 1 and 3 D. 2 and 4</description>
+    </item>
+    
+  </channel>
+</rss>

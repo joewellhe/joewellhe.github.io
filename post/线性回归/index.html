@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="描述回归问题及收集一些面试题">
+  <meta name="generator" content="Hugo 0.37" />
+
+  <title>线性模型 &middot; Interview Questions for Machine Learning</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://joewellhe.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://joewellhe.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://joewellhe.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://joewellhe.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://joewellhe.github.io/">Menu</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/contact/"><i class='fa fa-phone fa-fw'></i>Contact</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/topics/"><i class='fa fa-folder fa-fw'></i>Topics</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://joewellhe.github.io/tags/"><i class='fa fa-tags fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/joewellhe" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2018. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>线性模型</h1>
+  <h2>描述回归问题及收集一些面试题</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>28 Mar 2018, 19:18</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://joewellhe.github.io/topics/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86">面试题收集</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://joewellhe.github.io/tags/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B">线性模型</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p><font size=4 ></p>
+
+<h1 id="线性回归">线性回归</h1>
+
+<p>模型：</p>
+
+<p><img src="https://i.imgur.com/O2BWtW0.png" alt="" /></p>
+
+<p>策略：普通最小二乘（OLS）</p>
+
+<p><img src="https://i.imgur.com/5Y6wuvi.png" alt="" /></p>
+
+<p>优化方式：<br></p>
+
+<ul>
+<li>梯度下降</li>
+</ul>
+
+<p><img src="https://i.imgur.com/LFTkvyO.png" alt="" /></p>
+
+<p><img src="https://i.imgur.com/prYyh1I.png" alt="" /></p>
+
+<ul>
+<li>正规方差</li>
+</ul>
+
+<p><img src="https://i.imgur.com/wZSdSbb.png" alt="" /></p>
+
+<p><img src="https://i.imgur.com/YE0xnRG.png" alt="" /></p>
+
+<p>优点：实现简单，计算简单，有解析解；</p>
+
+<p>缺点：不能拟合非线性数据；</p>
+
+<p><strong>一般线性回归遇到的问题</strong></p>
+
+<p>在处理复杂的数据的回归问题时，普通的线性回归会遇到一些问题，主要表现在：</p>
+
+<ul>
+<li>预测精度：这里要处理好这样一对问题，即样本的数量n和特征的数量p</li>
+</ul>
+
+<p>n &gt;&gt; p时，最小二乘回归会有较小的方差</p>
+
+<p>n ≈ p时，容易产生过拟合</p>
+
+<p>n &lt; p时，最小二乘回归得不到有意义的结果</p>
+
+<ul>
+<li>模型的解释能力：如果模型中的特征之间有相互关系，这样会增加模型的复杂程度，并且对整个模型的解释能力并没有提高，这时，我们就要进行特征选择。 在进行特征选择时，一般有三种方式：</li>
+</ul>
+
+<p>子集选择</p>
+
+<p>收缩方式(Shrinkage method)，又称为正则化(Regularization)。主要包括<a href="#ridge">岭回归</a>和<a href="#lasso">Lasso回归</a>。</p>
+
+<p>维数缩减</p>
+
+<h3 id="q1-普通最小二乘-ols是用于线性回归-最大似然-mle是用于逻辑回归-解释以上描述">Q1: （普通最小二乘）OLS是用于线性回归, （最大似然）MLE是用于逻辑回归，解释以上描述？</h3>
+
+<p>简单地说，普通最小二乘法（OLS）是在线性回归中求解参数使用的方法，可以通过解正规方程得到解析解。 此外还可以通过梯度下降的方法求解最小均方误差的数值解，且普通最小二乘由梯度下降求解可以收敛到全局的最优解。 最大似然估计是一种常用的参数估计方式，最大似然性有助于选择使参数最可能产生观测数据的可能性最大化的参数值。 LR模型中通过最大化对数似然函数得到最优解。</p>
+
+<p><strong>事实上，线性回归的OLS在满足一定的数据分布假设的情况下，和MLE是等同的。</strong></p>
+
+<p>我们假设线性回归产生的误差是服从正态分布的，即</p>
+
+<p><img src="https://i.imgur.com/Z8zY02O.png" alt="" /></p>
+
+<p><img src="https://i.imgur.com/NVtEvHt.png" alt="" /></p>
+
+<p>则根据正态分布的平移收缩，我们可以知道y也满足如下的正态分布</p>
+
+<p><img src="https://i.imgur.com/81kcWul.png" alt="" /></p>
+
+<p>通过最大化对数似然函数我们可以得到</p>
+
+<p><img src="https://i.imgur.com/6Sd4lUa.png" alt="" /></p>
+
+<p>可以看到，减号前为常数项，最大化对数似然函数等价于普通最小二乘。</p>
+
+<h3 id="q2-关于mle-最大似然估计-下面哪一项或几项说法是正确的">Q2: 关于MLE（最大似然估计），下面哪一项或几项说法是正确的</h3>
+
+<p>A. MLE可能不存在</p>
+
+<p>B. MLE总是存在</p>
+
+<p>C. 如果MLE存在，可能不是唯一的</p>
+
+<p>D. 如果MLE存在，肯定是唯一的</p>
+
+<p>A. 1 and 4      B. 2 and 3   C. 1 and 3     D. 2 and 4</p>
+
+<p>答案：C</p>
+
+<p>MLE是通过似然函数导数等于0来找最优点，即找驻点所以有以下结论：
+MLE可以不是转折点，即，可以不是似然（和对数似然）函数的一阶导数的消失点。 MLE可以不是唯一的。</p>
+
+<h3 id="q3-在推导线性回归参数时-我们会做出以下哪些假设">Q3: 在推导线性回归参数时，我们会做出以下哪些假设？</h3>
+
+<p>因变量y和预测变量x之间的真实关系是线性的。</p>
+
+<p>模型的误差在统计意义上是独立的。</p>
+
+<p>误差通常分布是均值为0，且标准差为常数。</p>
+
+<p>预测变量x是非随机的，而且不存在测量误差。</p>
+
+<p>A.1,2,3</p>
+
+<p>B.1,3,4</p>
+
+<p>C1,3</p>
+
+<p>D. 以上所有</p>
+
+<p>答案：D</p>
+
+<p>当我们推到回归参数的时候，我们会提出以上四项假设。。当任意一项假设不成立的时候，得到的模型将会是错误的。</p>
+
+<h3 id="q4-假设我们已经由3次多项式回归生成了数据-三次正好能拟合改组数据-现在请考虑以下几种说法-并选择合适项">Q4:假设我们已经由3次多项式回归生成了数据（三次正好能拟合改组数据）。现在请考虑以下几种说法，并选择合适项。</h3>
+
+<p>简单线性回归将具有高偏差和低方差</p>
+
+<p>简单线性回归将具有低偏差和高方差</p>
+
+<p>三次多项式将具有低偏差和高方差</p>
+
+<p>三次多项式将具有低偏差和低方差</p>
+
+<p>A. Only 1</p>
+
+<p>B. 1 and 3</p>
+
+<p>C. 1 and 4</p>
+
+<p>D. 2 and 4</p>
+
+<p>答案：C</p>
+
+<p>如果我们用更高次（大于3次）的多项式去拟合，会出现过拟合现象，因为模型将会变得更加复杂。如果我们用更低次(小于3次)的多项式去拟合，就意味着模型变得简单，所以在这种情况下会出现高偏差和低方差的情况。而在3次多项式的情况下，我们就会得到低方差低偏差。关于偏差和方差的平衡，可以参照吴恩达讲义 Part 4.</p>
+
+<h3 id="q5-假设你在训练一个线性回归模型-请看一下两点-哪个-些-说法是正确的">Q5:假设你在训练一个线性回归模型，请看一下两点，哪个（些）说法是正确的？</h3>
+
+<ol>
+<li><p>如果我们拥有较少的数据，更容易发生过拟合的情况</p></li>
+
+<li><p>如果假设空间很小，更容易产生过拟合的情况</p></li>
+</ol>
+
+<p>A 两种说法都错</p>
+
+<p>B 是错的，2是对的</p>
+
+<p>C 1是对的，2是错的</p>
+
+<p>D 两种说法都对</p>
+
+<p>答案：C</p>
+
+<p>具有一个比较小的训练集，很容易找到假设去拟合训练数据集，即为过拟合。我们能从偏差-方差平衡上来理解这点。当假设空间集比较小的时候，它具有更高的偏差和更低的方差，所以对于较小的假设空间，不太能找到合适的假设去拟合数据，这正是欠拟合。</p>
+
+<h3 id="q6-我们还可以借助于称为-normal-equation-的分析方法来计算线性回归的系数-关于normal-equation-下面哪个-些-说法是正确的">Q6:我们还可以借助于称为“normal equation”的分析方法来计算线性回归的系数，关于normal equation,下面哪个（些）说法是正确的？</h3>
+
+<ol>
+<li><p>我们不必选择学习速度</p></li>
+
+<li><p>当特征值很多的时候，就会变慢</p></li>
+
+<li><p>不需要迭代</p></li>
+</ol>
+
+<p>A. 1和2</p>
+
+<p>B. 1和3</p>
+
+<p>C. 2和3</p>
+
+<p>D. 1，2和3</p>
+
+<p>答案：D</p>
+
+<h3 id="q7-y值是关于变量x-x1-x2-xn-的线性函数-回归线如下定义">Q7:Y值是关于变量X(X1,X2….Xn)的线性函数，回归线如下定义：</h3>
+
+<p>Y = β0 +  β1 X1 + β2 X2……+ βn Xn</p>
+
+<ol>
+<li><p>下面哪种（些）说法是正确的？</p></li>
+
+<li><p>如果Xi变化量为∆Xi，保持其他变量不变，那么Y值变化量为βi ∆Xi，βi是一个常数（通常是一个正数或者负数）</p></li>
+
+<li><p>βi不变，无论其他X值如何变化</p></li>
+</ol>
+
+<p>作用在Y值上的所有X值是其单独作用的总和。注意：特征值是相互独立的，没有相互作用。</p>
+
+<p>A. 1和2</p>
+
+<p>B. 1和3</p>
+
+<p>C. 2和3</p>
+
+<p>D. 1，2和3</p>
+
+<p>答案：D</p>
+
+<h3 id="q8-关于-回归-和-相关-下列哪个选项是正确的">Q8:关于“回归”和“相关”，下列哪个选项是正确的？</h3>
+
+<p>注意：y是因变量，x是自变量</p>
+
+<p>A. 在两者中，x和y之间的关系是对称的。</p>
+
+<p>B. 在两者中，x和y之间的关系不是对称的。</p>
+
+<p>C. 在相关的情况下，关系在x和y之间不是对称的，但是在回归的情况下它是对称的。</p>
+
+<p>D. 在相关的情况下，关系在x和y之间是对称的，但是在回归的情况下它是不对称的。</p>
+
+<p>答案：D</p>
+
+<ol>
+<li><p>相关是一个统计度量，用于测量两个变量之间的线性关联。它对称地处理y和x。</p></li>
+
+<li><p>回归是建立了从x预测y的方法，两个变量之间的关系是不对称的。</p></li>
+</ol>
+
+<h3 id="q9-关于lasso-regression-div-id-lasso-div">Q9:关于Lasso Regression<div id="lasso"></div></h3>
+
+<p>对较复杂的数据建模（比如文本分类，图像去噪或者基因组研究）的时候，包括在一个多元线性回归模型里的很多变量可能是和响应变量无关的；也有可能产生多重共线性的现象：即多个预测变量之间明显相关。这些情况都会增加模型的复杂程度，削弱模型的解释能力。这时候需要进行变量选择（特征选择）。 实际上，我们选择剔除一些变量，不必减少参数而改变求解的线性超平面表达式，只需要将对应的参数设置0即可。</p>
+
+<p><strong>缩减系数的目的</strong></p>
+
+<ol>
+<li>消除噪声特征:
+如果模型考虑了一些不必要的特征，那么这些特征就算是噪声。噪声是没必要的，使得模型复杂，降低模型准确性，需要剔除。
+。</li>
+<li>消除关联的特征: 如果模型的特征空间中存在关联的特征，这会使得模型不适定，即模型参数会有多解。训练得到的只是其中一个解，这个解往往不能反映模型的真实情况，会误导模型的分析与理解。训练求解的模型参数受样本影响特别大，样本变化一点点，参数解就跳到另一组解去了。总之，模型是不稳定的。</li>
+</ol>
+
+<p>Lasso回归在线性回归的优化目标中加入了L1正则</p>
+
+<p><img src="https://i.imgur.com/gAwe0On.png" alt="" /></p>
+
+<p>为理解L1正则是如何选择特征，使参数更加稀疏的，我们可以看下图。当特征变量为2维的时候，只要不是特殊情况下与正方形的边相切，一定是与某个顶点优先相交，那必然存在横纵坐标轴中的一个系数为0，起到对变量的筛选的作用。</p>
+
+<p><img src="https://i.imgur.com/honhG2G.png" alt="" /></p>
+
+<p>lasso回归的特色就是在建立广义线型模型的时候，这里广义线型模型包含一维连续因变量、多维连续因变量、非负次数因变量、二元离散因变量、多元离散因变，除此之外，无论因变量是连续的还是离散的，lasso都能处理，总的来说，lasso对于数据的要求是极其低的，所以应用程度较广；除此之外，lasso还能够对变量进行筛选和对模型的复杂程度进行降低。这里的变量筛选是指不把所有的变量都放入模型中进行拟合，而是有选择的把变量放入模型从而得到更好的性能参数。 复杂度调整是指通过一系列参数控制模型的复杂度，从而避免过度拟合(Overfitting)。 对于线性模型来说，复杂度与模型的变量数有直接关系，变量数越多，模型复杂度就越高。 更多的变量在拟合时往往可以给出一个看似更好的模型，但是同时也面临过度拟合的危险。 lasso的复杂程度由α来控制，α越大对变量较多的线性模型的惩罚力度就越大，从而最终获得一个变量较少的模型。 Lasso回归使得一些系数变小，甚至还是一些绝对值较小的系数直接变为0，因此特别适用于参数数目缩减与参数的选择，因而用来估计稀疏参数的线性模型</p>
+
+<p>Lasso优化：</p>
+
+<p>Lasso回归有一个很大的问题，就是它的损失函数不是连续可导的，由于L1范数用的是绝对值之和，导致损失函数有不可导的点。也就是说，我们的最小二乘法，梯度下降法，牛顿法与拟牛顿法对它统统失效了。那我们怎么才能求有这个L1范数的损失函数极小值呢？</p>
+
+<p>坐标轴下降法</p>
+
+<p>前项选择法</p>
+
+<p>前向梯度法</p>
+
+<p>最小角回归</p>
+
+<p>可以参考博客<a href="http://https://www.cnblogs.com/pinard/p/6018889.html">Lasso的求解方法</a>以及其他相关资料</p>
+
+<h3 id="q9-关于ridge回归-div-id-ridge-div">Q9:关于Ridge回归<div id="ridge"></div></h3>
+
+<p>通过在线性回归的优化目标后加上L2正则，我们可以得到岭回归的优化目标：</p>
+
+<p><img src="https://i.imgur.com/iDbYYKQ.png" alt="" /></p>
+
+<p>求导解方程可以得到参数的解析解</p>
+
+<p><img src="https://i.imgur.com/ycfMXfa.png" alt="" /></p>
+
+<p>加入L2正则可以使得参数不会变的很大，当岭参数为0，得到最小二乘解。当岭参数λ趋向更大时，岭回归参数w估计趋向于0。 当回归参数越小，数据变化时，得到的回归值受到的扰动会更小，这就可以方式模型的过拟合。 加入L2正则求解岭回归可以有如图的一个几何解释。 与Lasso回归不同，L2正则不能得到稀疏解，如图，L2正则约束与均方误差优化的等高线总是交于某个象限之中，而L1正则总是某个定点与等高线相交。</p>
+
+<p><img src="https://i.imgur.com/ViAX7V8.png" alt="" /></p>
+
+<p>岭迹图
+岭迹图的横坐标为λ，纵坐标为β(λ)。而β(λ)是一个向量，由β1(λ)、β2(λ)、&hellip;等很多分量组成，每一个分量都是λ的函数，将每一个分量分别用一条线。</p>
+
+<p>岭迹图作用：</p>
+
+<p>1）观察λ最佳取值；</p>
+
+<p>2）观察变量是否有多重共线性；</p>
+
+<p>　　可见，在λ很小时，通常各β系数取值较大；而如果λ=0，则跟普通意义的多元线性回归的最小二乘解完全一样；当λ略有增大，则各β系数取值迅速减小，即从不稳定趋于稳定。</p>
+
+<p>　　λ的选择：一般通过观察，选取喇叭口附近的值，此时各β值已趋于稳定，但总的RSS又不是很大。</p>
+
+<p>　　选择变量：删除那些β取值一直趋于0的变量。</p>
+
+<p>岭回归缺陷</p>
+
+<p>1.主要靠目测选择岭参数</p>
+
+<p>2.计算岭参数时，各种方法结果差异较大</p>
+
+<p>所以一般认为，岭迹图只能看多重共线性，却很难做变量筛选。</p>
+
+<p>资料参考自<a href="https://www.jianshu.com/p/1677d27e08a7">简书-岭回归</a>，更多关于岭回归偏差方差平衡的分析，可以参考此博客。</p>
+
+<h3 id="q10-特征缩放-学习率选取的问题">Q10: 特征缩放，学习率选取的问题</h3>
+
+<p>特征缩放：即对特征数据进行归一化操作，进行特征缩放的好处有两点：一是能够提升模型的收敛速度，因为如果特征间的数据相差级别较大的话，以两个特征为例，以这两个特征为横纵坐标绘制等高线图（如图），绘制出来是扁平状的椭圆，这时候通过梯度下降法寻找梯度方向最终将走垂直于等高线的之字形路线，迭代速度变慢。但是如果对特征进行归一化操作之后，整个等高线图将呈现圆形，梯度的方向是指向圆心的，迭代速度远远大于前者。二是能够提升模型精度。下图左为归一化之前的训练迭代，图右为归一化之后。</p>
+
+<p><img src="https://i.imgur.com/2B6AOl2.png" width = "400" height = "400" alt="图片名称" align=center />
+<img src="https://i.imgur.com/yJbJhWI.png30x30" width = "400" height = "400" alt="图片名称" align=center />
+<strong>机器算法为什么要特征缩放？</strong></p>
+
+<p>特征缩放还可以使机器学习算法工作的更好。比如在K近邻算法中，分类器主要是计算两点之间的欧几里得距离，如果一个特征比其它的特征有更大的范围值，那么距离将会被这个特征值所主导。因此每个特征应该被归一化，比如将取值范围处理为0到1之间。</p>
+
+<p>常见的归一化：</p>
+
+<p>调节比例（Rescaling）
+这种方法是将数据的特征缩放到[0,1]或[-1,1]之间。缩放到什么范围取决于数据的性质。对于这种方法的公式如下：</p>
+
+<p><img src="https://i.imgur.com/2GWHuHm.png" alt="" /></p>
+
+<p>标准化(Standardization)
+特征标准化使每个特征的值有零均值(zero-mean)和单位方差(unit-variance)。这个方法在机器学习地算法中被广泛地使用。例如：SVM，逻辑回归和神经网络。这个方法的公式如下：</p>
+
+<p><img src="https://i.imgur.com/ay7NrAr.png" alt="" /></p>
+
+<p>这两种归一化方法的适用场景为：</p>
+
+<p>在不涉及距离度量、协方差计算、数据不符合正太分布的时候，可以使用第一种方法或其他归一化方法。比如图像处理中，将RGB图像转换为灰度图像后将其值限定在[0 255]的范围。</p>
+
+<p>在分类、聚类算法中，需要使用距离来度量相似性的时候、或者使用PCA技术进行降维的时候，第二种方法(standardization)表现更好。</p>
+
+<p><strong>学习率α的选取</strong>：如果学习率α选取过小，会导致迭代次数变多，收敛速度变慢；学习率α选取过大，有可能会跳过最优解，最终导致根本无法收敛。</p>
+
+<h3 id="q11-通常来说-下面哪种-些-方法能够用来预测连续因变量">Q11:通常来说，下面哪种（些）方法能够用来预测连续因变量？</h3>
+
+<ol>
+<li><p>线性回归</p></li>
+
+<li><p>逻辑回归</p></li>
+</ol>
+
+<p>A.  1和2</p>
+
+<p>B. 只有1</p>
+
+<p>C.  只有2</p>
+
+<p>D. 以上皆非</p>
+
+<p>答案：B</p>
+
+<p>逻辑回归是用来处理分类问题的，这里的回归的说法，从字面上来说是有误导倾向的。</p>
+
+<h3 id="q12-对于下面的方法-哪些系数是没有闭式解-closed-form-solution-的">Q12:对于下面的方法，哪些系数是没有闭式解(closed form solution)的？</h3>
+
+<p>A. Ridget回归</p>
+
+<p>B. Lasso</p>
+
+<p>C. Ridge回归和Lasso都有</p>
+
+<p>D. Ridge回归和Lasso都没有</p>
+
+<p>答案：B</p>
+
+<p>Lasso没有闭式解。L1惩罚值使得解为非线性，所以需要估算答案。如果需要了解更多闭式解的知识，请参看这个<a href="http://statweb.stanford.edu/~tibs/sta305files/Rudyregularization.pdf">链接</a>。</p>
+
+<h3 id="q13-假设我们使用logistic回归模型分析n类分类问题-在这种情况下-我们可以使用one-vs-rest-method-关于这个问题-下面哪个选项是正确的">Q13：假设我们使用Logistic回归模型分析n类分类问题。在这种情况下，我们可以使用One-vs-rest method。关于这个问题，下面哪个选项是正确的？</h3>
+
+<p>A. 我们需要在n类分类问题中拟合n个模型。</p>
+
+<p>B. 我们需要在n类分类问题中拟合n-1个模型。</p>
+
+<p>C. 我们需要在n类分类问题中拟合1个模型。</p>
+
+<p>D. 以上皆非</p>
+
+<p>答案：A</p>
+
+<p>如果有n项，那么需要n个单独的逻辑回归去拟合，其中每组的概率是需要在剩余其他组合中去拟合的。例如，对于一个3项(-1,0,1)分类器，那就需要训练3个逻辑回归分类器。</p>
+
+<ol>
+<li><p>-1 vs 0 and 1</p></li>
+
+<li><p>0 vs -1 and 1</p></li>
+
+<li><p>1 vs 0 and -1</p></li>
+</ol>
+
+<h3 id="q14-对于下面的方法-哪些系数是没有闭式解-closed-form-solution-的">Q14: 对于下面的方法，哪些系数是没有闭式解(closed form solution)的？</h3>
+
+<p>A. Ridget回归</p>
+
+<p>B. Lasso</p>
+
+<p>C. Ridge回归和Lasso都有</p>
+
+<p>D.  Ridge回归和Lasso都没有</p>
+
+<p>答案：B</p>
+
+<p>Lasso没有闭式解。L1惩罚值使得解为非线性，所以需要估算答案。如果需要了解更多闭式解的知识，请参看这个
+<a href="http://statweb.stanford.edu/~tibs/sta305files/Rudyregularization.pdf">链接</a></p>
+
+<h3 id="q15-关于ridge回归-下面哪个-些-说法是正确的">Q15:关于ridge回归，下面哪个（些）说法是正确的？</h3>
+
+<ol>
+<li><p>如果λ为0，模型等同于现行回归模型工作。</p></li>
+
+<li><p>如果λ为0，模型不会像线性回归模型一样工作。</p></li>
+
+<li><p>如果λ趋向于无穷，我们会得到极小的系数，趋向于0。</p></li>
+
+<li><p>如果λ趋向于无穷，我们会得到极大的系数，趋向于无穷大。</p></li>
+</ol>
+
+<p>A.  1和3</p>
+
+<p>B. 1和4</p>
+
+<p>C. 2和3</p>
+
+<p>D. 2和4</p>
+
+<p>答案：A</p>
+
+<h3 id="q16-假设您已在数据集上拟合了一个复杂的回归模型-现在-您正在使用ridge回归-并调整参数λ以减少其复杂性-选择下面的描述-哪个表达了偏差和方差与λ的关系">Q16: 假设您已在数据集上拟合了一个复杂的回归模型。现在，您正在使用Ridge回归，并调整参数λ以减少其复杂性。选择下面的描述，哪个表达了偏差和方差与λ的关系。</h3>
+
+<p>A. 在λ非常小的情况下，偏差低，方差低。</p>
+
+<p>B. 在λ非常小的情况下，偏差低，方差高。</p>
+
+<p>C. 在λ非常小的情况下，偏差高，方差低。</p>
+
+<p>D. 在λ非常小的情况下，偏差低，方差低。</p>
+
+<p>答案: B</p>
+
+<p>如果λ很小，则意味着模型比较复杂，这种情况下，会产生偏差低且方差高的结果，模型会对数据过拟合。</p>
+
+<h3 id="17-下面回归模型中的哪个步骤-假设最能影响过拟合和欠拟合之间的平衡因素">17：下面回归模型中的哪个步骤/假设最能影响过拟合和欠拟合之间的平衡因素：</h3>
+
+<p>A. 多项式的阶数</p>
+
+<p>B. 是否通过矩阵求逆或梯度下降学习权重</p>
+
+<p>C.使用常数项</p>
+
+<p>答案：A</p>
+
+<p>选取合适的多项式阶数对于回归的拟合程度会产生重要的影响。多项式阶数越高，越容易产生过拟合现象。</p>
+
+<p>大部分题目转载自
+<a href="http://www.managershare.com/post/337789">http://www.managershare.com/post/337789</a></p>
+
+<p></font></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+
+</div>
+
+</div>
+</div>
+<script src="https://joewellhe.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103593285-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+</body>
+</html>
+
